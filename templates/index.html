@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <title>
+            BMI Test
+        </title>
+        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+        <!--<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">-->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+        <style>
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .heading {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .submit-btn {
+            width: 100%;
+        }
+        /* Optional: Add custom styles for smaller screens */
+        @media (max-width: 576px) {
+            .form-container {
+                padding: 10px;
+            }
+            .submit-btn {
+                width: 100%;
+            }
+        }
+               
+                
+                
+                
+        </style>
+    </head>
+    
+    <body>
+        <div class="card">
+            <div class="card-body">
+                <div class="container">
+                    <div class="form-container">
+                        <h1 class="heading">BMI Prediction Model</h1>
+                        <br>
+                        <form action="{{ url_for('predict')}}" method="post">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="name" name="name" title="name" required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="gender" name="gender_lbl" title="gender_lbl" required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control"  placeholder="height" name="height" title="height" required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control"  placeholder="weight" name="weight" title="weight" required/>
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-primary submit-btn">Predict</button>
+                        </form>
+                        <br>
+                        <br>
+                        <p class="text-center mt-3">
+                            {{ prediction_text }}
+                        </p>         
+                    </div>
+                </div>    
+            </div>
+        </div>  
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        
+    </body>
+</html>
